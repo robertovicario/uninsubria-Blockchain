@@ -18,7 +18,7 @@ linkcolor: "blue"
 urlcolor: "blue"
 ---
 
-# Blockchain
+
 
 The _Blockchain_ is a registry technology that allows to record information in an immutable, transparent and secure way without the need for a central authority. It is called "blockchain" (chain of blocks) because the data is grouped into blocks, linked together in chronological order through cryptography.
 
