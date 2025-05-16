@@ -1,7 +1,5 @@
 @startuml
 
-title Byzantine Fault Tolerance (BFT)\nProblem
-
 skinparam titleAlignment center
 skinparam defaultTextAlignment center
 
