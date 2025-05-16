@@ -1,0 +1,23 @@
+@startuml
+
+title Byzantine Fault Tolerance (BFT)\nProblem
+
+skinparam titleAlignment center
+skinparam defaultTextAlignment center
+
+node Castle
+actor "Byzantine 1" as B1 #aliceblue;line:blue;line.bold;text:blue
+actor "Byzantine 2" as B2 #aliceblue;line:blue;line.bold;text:blue
+actor "Byzantine 6\n(Traitor)" as B3 #pink;line:red;line.bold;text:red
+actor "Byzantine 5" as B4 #aliceblue;line:blue;line.bold;text:blue
+actor "Byzantine 4" as B5 #aliceblue;line:blue;line.bold;text:blue
+actor "Byzantine 3\n(Traitor)" as B6 #pink;line:red;line.bold;text:red
+
+B1 -down-> Castle
+B2 -down-> Castle
+B3 -right-> Castle
+B4 -up-> Castle
+B5 -up-> Castle
+B6 -left-> Castle
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+
+title Rotating Leaders Protocol
+
+entity Leader as Leader
+entity "Node 1" as Node1
+entity "Node 2" as Node2
+
+==Initialization==
+note over Leader, Node2
+Leader is selected
+end note
+Leader -> Leader : Selected as leader
+
+==Proposal==
+note over Leader, Node2
+Leader proposes value to other nodes
+end note
+Leader -> Node1 : Propose value
+Leader -> Node2 : [...]
+
+==Voting==
+note over Leader, Node2
+Each node votes on proposed value
+end note
+note over Leader, Node2
+Leader commits value if majority agrees
+end note
+Node1 -> Leader : Vote on proposed value
+Node2 -> Leader : [...]
+Leader -> Node1 : Commit value
+Leader -> Node2 : [...]
+
+==Rotation==
+note over Leader, Node2
+Rotate leadership after round
+end note
+Leader -> Node1 : Rotate leadership
+
+@enduml
