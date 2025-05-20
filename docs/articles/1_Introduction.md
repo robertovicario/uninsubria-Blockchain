@@ -20,7 +20,7 @@ urlcolor: "blue"
 
 # Blockchain
 
-The _Blockchain_ is a registry technology for distributed ledgers _(DLT - Distributed Ledger Technology)_. It allows to record information in an immutable, transparent and secure way without the need for a central authority. It is called "blockchain" (chain of blocks) because the data is grouped into blocks, linked together in chronological order through cryptography.
+The _Blockchain_ is a registry technology that allows to record information in an immutable, transparent and secure way without the need for a central authority. It is called "blockchain" (chain of blocks) because the data is grouped into blocks, linked together in chronological order through cryptography.
 
 > **Decentralization:** Control and decision-making aren't held by a central authority, like a company or government. Instead, power is distributed across a network of independent participants. Data is shared among many nodes (computers) distributed in a peer-to-peer network.
 
@@ -105,6 +105,8 @@ In a _Synchronous_ network, all nodes are assumed to have synchronized clocks an
 
 **\boxed{ASSUMPTIONS}**
 
+This model assumes that:
+
 - **Timing:** All nodes have synchronized clocks, meaning they can agree on the current time.
 - **Message Delivery:** Messages sent between nodes will arrive within a known time frame.
 - **Processing Time:** The time taken to process a message is known and bounded.
@@ -124,6 +126,8 @@ In a _Partial Synchronous_ network, there are some guarantees about message deli
 ---
 
 **\boxed{ASSUMPTIONS}**
+
+This model assumes that:
 
 - **Timing:** Nodes may not have synchronized clocks, but the network can eventually becomes stable enough for synchronously.
 - **Message Delivery:** Messages sent between nodes will eventually arrive, but there may be periods of time when messages are delayed or lost.
