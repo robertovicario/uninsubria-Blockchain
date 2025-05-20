@@ -79,6 +79,8 @@ In decentralized systems, no single person or computer is in charge, so how do a
 
 A _Consensus Algorithm_ is a mechanism used in distributed systems to achieve agreement on a single data value among distributed processes or systems. It is essential for ensuring that all nodes in a blockchain network have a consistent view of the ledger. Consensus algorithms are designed to handle various types of failures, including network partitions, node crashes, and malicious behavior.
 
+---
+
 **\boxed{ASSUMPTIONS}**
 
 An algorithm reaches consensus under the following assumptions:
@@ -99,6 +101,8 @@ A blockchain network can be implemented in various ways, depending on the requir
 
 In a _Synchronous_ network, all nodes are assumed to have synchronized clocks and can communicate with each other within a known time frame. This means that messages sent between nodes will arrive within a predictable time limit.
 
+---
+
 **\boxed{ASSUMPTIONS}**
 
 - **Timing:** All nodes have synchronized clocks, meaning they can agree on the current time.
@@ -116,6 +120,8 @@ In an _Asynchronous_ network, there are no assumptions about the timing of messa
 ## Partial Synchronous
 
 In a _Partial Synchronous_ network, there are some guarantees about message delivery and processing times, but these guarantees may not hold at all times. This model is a compromise between synchronous and asynchronous networks.
+
+---
 
 **\boxed{ASSUMPTIONS}**
 
