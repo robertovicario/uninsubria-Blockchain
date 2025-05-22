@@ -24,7 +24,7 @@ The _Blockchain_ is a registry technology that allows to record information in a
 
 > **Decentralization:** Control and decision-making aren't held by a central authority, like a company or government. Instead, power is distributed across a network of independent participants. Data is shared among many nodes (computers) distributed in a peer-to-peer network.
 
-## Key Components
+Key components:
 
 - **Transaction:** A record of an action or event, like sending money.
 - **Block:** A container for a list of transactions. Each block contains a unique identifier (hash) and a reference to the previous block, forming a chain. The first block in the chain is called the _Genesis Block_.
@@ -34,8 +34,6 @@ The _Blockchain_ is a registry technology that allows to record information in a
 
 A blockchain is an extension of the _State Machine Replication (SMR)_ model. In this model, a distributed system maintains a consistent state across multiple nodes. Each node processes transactions in the same order, ensuring that all nodes reach the same state.
 
----
-
 **\boxed{DEFINITION}**
 
 Let $S$ be a set of states, $T$ be a set of transactions, and $f$ be the function that maps a state and a transaction to a new state.
@@ -44,17 +42,15 @@ Let $S$ be a set of states, $T$ be a set of transactions, and $f$ be the functio
 
 The state machine replication model can be defined as:
 
-\begin{equation}
-S = \{s_0, s_1, s_2, \ldots, s_n\}
-\end{equation}
-
-\begin{equation}
-T = \{t_0, t_1, t_2, \ldots, t_m\}
-\end{equation}
-
-\begin{equation}
-f: S \times T \rightarrow S
-\end{equation}
+$$
+S = \{ s_0, s_1, s_2, \ldots, s_n \}
+$$
+$$
+T = \{ t_0, t_1, t_2, \ldots, t_m \}
+$$
+$$
+f : S \times T \rightarrow S
+$$
 
 Where:
 
@@ -62,7 +58,9 @@ Where:
 - $s_i$ is the state of the system after processing transaction $t_i$.
 - $f(s_i, t_i) = s_{i+1}$ is the function that updates the state of the system after processing transaction $t_i$.
 
-## The Blockchain Stack
+## Blockchain Stack
+
+The main layers of the blockchain stack are:
 
 1. **Network Layer:** The underlying infrastructure that connects all nodes in the blockchain network. It ensures that data can be transmitted securely and efficiently between nodes.
 2. **Consensus Layer:** The protocol that allows nodes to agree on the state of the blockchain. It ensures that all nodes have a consistent view of the ledger, even in the presence of faulty or malicious nodes.
@@ -79,8 +77,6 @@ In decentralized systems, no single person or computer is in charge, so how do a
 
 A _Consensus Algorithm_ is a mechanism used in distributed systems to achieve agreement on a single data value among distributed processes or systems. It is essential for ensuring that all nodes in a blockchain network have a consistent view of the ledger. Consensus algorithms are designed to handle various types of failures, including network partitions, node crashes, and malicious behavior.
 
----
-
 **\boxed{ASSUMPTIONS}**
 
 An algorithm reaches consensus under the following assumptions:
@@ -89,6 +85,8 @@ An algorithm reaches consensus under the following assumptions:
 - **Liveness:** The system guarantees that a decision will eventually be reached, provided that a sufficient number of honest nodes are present.
 
 ## Permissioned vs. Permissionless
+
+In a blockchain network, participants can be classified into two categories based on their access rights:
 
 - **Permissioned:** Only authorized participants can join the network and validate transactions. This type of network is often used in private blockchains or consortium blockchains, where a group of organizations collaborates.
 - **Permissionless:** Anyone can join the network and participate in the consensus process. This type of network is typically used in public blockchains, where anyone can become a node and validate transactions.
@@ -100,8 +98,6 @@ A blockchain network can be implemented in various ways, depending on the requir
 ## Synchronous
 
 In a _Synchronous_ network, all nodes are assumed to have synchronized clocks and can communicate with each other within a known time frame. This means that messages sent between nodes will arrive within a predictable time limit.
-
----
 
 **\boxed{ASSUMPTIONS}**
 
@@ -117,13 +113,11 @@ This model assumes that:
 
 In an _Asynchronous_ network, there are no assumptions about the timing of message delivery or the processing time of messages. Nodes can communicate with each other, but there is no guarantee that messages will arrive within a specific time frame. Assumptions are mainly the opposite of synchronous networks, the service could be delayed or unavailable.
 
-> **Consideration:** These networks are more realistic for real-world scenarios, but they are harder to reason about due to the lack of timing guarantees. They have a higher risk of network partitions and message loss, and theoretical limits on consensus – The _FLP_ theorem.
+> **Consideration:** These networks are more realistic for real-world scenarios, but they are harder to reason about due to the lack of timing guarantees. They have a higher risk of network partitions and message loss, and theoretical limits on consensus.
 
 ## Partial Synchronous
 
 In a _Partial Synchronous_ network, there are some guarantees about message delivery and processing times, but these guarantees may not hold at all times. This model is a compromise between synchronous and asynchronous networks.
-
----
 
 **\boxed{ASSUMPTIONS}**
 
