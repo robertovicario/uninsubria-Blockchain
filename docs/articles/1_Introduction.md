@@ -9,20 +9,38 @@ date: "2024/2025"
 titlepage: true
 titlepage-color: "FFFFFF"
 titlepage-text-color: "000000"
-titlepage-rule-color: "9D44B5"
+titlepage-rule-color: "007161"
 toc: true
 toc-own-page: true
 numbersections: true
 colorlinks: true
 linkcolor: "blue"
 urlcolor: "blue"
+
+header-includes:
+    - |
+      ```{=latex}
+      \usepackage{tcolorbox}
+      \newtcolorbox{info-box}{colback=cyan!5!white,arc=0pt,outer arc=0pt,colframe=cyan!60!black}
+      \newtcolorbox{warning-box}{colback=orange!5!white,arc=0pt,outer arc=0pt,colframe=orange!80!black}
+      \newtcolorbox{error-box}{colback=red!5!white,arc=0pt,outer arc=0pt,colframe=red!75!black}
+      ```
+
+pandoc-latex-environment:
+    info-box: [info]
+    warning-box: [warning]
+    error-box: [error]
 ---
 
 # Blockchain
 
 The _Blockchain_ is a registry technology that allows to record information in an immutable, transparent and secure way without the need for a central authority. It is called "blockchain" (chain of blocks) because the data is grouped into blocks, linked together in chronological order through cryptography.
 
+\vspace{0.5cm}
+
 > **Decentralization:** Control and decision-making aren't held by a central authority, like a company or government. Instead, power is distributed across a network of independent participants. Data is shared among many nodes (computers) distributed in a peer-to-peer network.
+
+\vspace{0.5cm}
 
 Key components:
 
@@ -34,11 +52,19 @@ Key components:
 
 A blockchain is an extension of the _State Machine Replication (SMR)_ model. In this model, a distributed system maintains a consistent state across multiple nodes. Each node processes transactions in the same order, ensuring that all nodes reach the same state.
 
+\vspace{0.5cm}
+
 **\boxed{DEFINITION}**
 
 Let $S$ be a set of states, $T$ be a set of transactions, and $f$ be the function that maps a state and a transaction to a new state.
 
-> **Assumption:** If all replicas receive the same sequence of transactions $t_1, t_2, \ldots, t_n$, they will all reach the same final state $s_n$ and produce the same output.
+\vspace{0.5cm}
+
+:::info
+**Assumption:** If all replicas receive the same sequence of transactions $t_1, t_2, \ldots, t_n$, they will all reach the same final state $s_n$ and produce the same output.
+:::
+
+\vspace{0.5cm}
 
 The state machine replication model can be defined as:
 
@@ -71,11 +97,17 @@ The main layers of the blockchain stack are:
 
 In decentralized systems, no single person or computer is in charge, so how do all the independent nodes agree on what’s true? That’s the _Consensus Problem_:
 
-> **Problem:** _How can a group of participants, who don't fully trust each other, agree on a single version of the truth?_
+\vspace{0.5cm}
+
+:::warning
+**Problem:** _How can a group of participants, who don't fully trust each other, agree on a single version of the truth?_
+:::
 
 ## Consensus Algorithm
 
 A _Consensus Algorithm_ is a mechanism used in distributed systems to achieve agreement on a single data value among distributed processes or systems. It is essential for ensuring that all nodes in a blockchain network have a consistent view of the ledger. Consensus algorithms are designed to handle various types of failures, including network partitions, node crashes, and malicious behavior.
+
+\vspace{0.5cm}
 
 **\boxed{ASSUMPTIONS}**
 
@@ -99,6 +131,8 @@ A blockchain network can be implemented in various ways, depending on the requir
 
 In a _Synchronous_ network, all nodes are assumed to have synchronized clocks and can communicate with each other within a known time frame. This means that messages sent between nodes will arrive within a predictable time limit.
 
+\vspace{0.5cm}
+
 **\boxed{ASSUMPTIONS}**
 
 This model assumes that:
@@ -107,17 +141,27 @@ This model assumes that:
 - **Message Delivery:** Messages sent between nodes will arrive within a known time frame.
 - **Processing Time:** The time taken to process a message is known and bounded.
 
-> **Consideration:** These networks are easier to reason about, but they are less common in real-world scenarios due to network latency and clock synchronization issues.
+\vspace{0.5cm}
+
+:::info
+**Consideration:** These networks are easier to reason about, but they are less common in real-world scenarios due to network latency and clock synchronization issues.
+:::
 
 ## Asynchronous
 
 In an _Asynchronous_ network, there are no assumptions about the timing of message delivery or the processing time of messages. Nodes can communicate with each other, but there is no guarantee that messages will arrive within a specific time frame. Assumptions are mainly the opposite of synchronous networks, the service could be delayed or unavailable.
 
-> **Consideration:** These networks are more realistic for real-world scenarios, but they are harder to reason about due to the lack of timing guarantees. They have a higher risk of network partitions and message loss, and theoretical limits on consensus.
+\vspace{0.5cm}
+
+:::info
+**Consideration:** These networks are more realistic for real-world scenarios, but they are harder to reason about due to the lack of timing guarantees. They have a higher risk of network partitions and message loss, and theoretical limits on consensus.
+:::
 
 ## Partial Synchronous
 
 In a _Partial Synchronous_ network, there are some guarantees about message delivery and processing times, but these guarantees may not hold at all times. This model is a compromise between synchronous and asynchronous networks.
+
+\vspace{0.5cm}
 
 **\boxed{ASSUMPTIONS}**
 
@@ -127,4 +171,8 @@ This model assumes that:
 - **Message Delivery:** Messages sent between nodes will eventually arrive, but there may be periods of time when messages are delayed or lost.
 - **Processing Time:** There exists a bound on the time taken to process a message, but this bound is unknown or does not hold at all times.
 
-> **Consideration:** These networks combines real-world practices with theoretical guarantees to reach consensus. It assumes that even if the messages are delayed, they will eventually be delivered.
+\vspace{0.5cm}
+
+:::info
+**Consideration:** These networks combine real-world practices with theoretical guarantees to reach consensus. It assumes that even if the messages are delayed, they will eventually be delivered.
+:::

@@ -42,9 +42,7 @@ To prevent Sybil attacks, the system must ensure that creating multiple identiti
 
 ### Proof of Stake (PoS)
 
-The chance of being chosen to propose or validate a block generally depends on the amount committed. This approach helps limit the influence of any single participant and discourages the creation of many identities.
-
-PoS can be integrated into consensus mechanisms in these ways:
+The chance of being chosen to propose or validate a block generally depends on the amount committed. This approach helps limit the influence of any single participant and discourages the creation of many identities. PoS can be integrated into consensus mechanisms in these ways:
 
 - **PoS + BFT:** The quorum is easily achieved by selecting the nodes with the highest stake.
 - **PoS + LC:** The longest chain selects the leader by the depth of the chain, which is proportional to the stake held by the nodes.
