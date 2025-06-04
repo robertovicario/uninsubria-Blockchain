@@ -53,7 +53,20 @@ In this mechanism, the nodes called miners, compete to solve a cryptographic _Ha
 
 \vspace{0.5cm}
 
-> **Hard Puzzle:** ... 19 / 20 / 21 !!
+**\boxed{PROOF}**
+
+Given a cryptographic hash function $H$, find an input $x$ such that:
+
+$$
+H(x) \leq \tau
+$$
+
+where $\tau$ is the current difficulty target.
+
+Since $H$ behaves like a random function, the only viable strategy is brute-force search. The difficulty of the puzzle is adjusted by changing $\tau$:
+
+- Smaller $\tau \Rightarrow$ fewer hash outputs satisfy the condition $\Rightarrow$ harder puzzle
+- Larger $\tau \Rightarrow$ more outputs satisfy the condition $\Rightarrow$ easier puzzle
 
 \vspace{0.5cm}
 
@@ -66,4 +79,13 @@ PoW can be integrated into consensus mechanisms in these ways:
 
 > **Partially Synchronous**
 
-...
+_Nakamoto Consensus_ is a consensus mechanism designed for PoW-based blockchains. It elects a leader in each round based on the computational effort expended by nodes, allowing them to agree on a single chain of blocks.
+
+\vspace{0.5cm}
+
+**\boxed{ALGORITHM}**
+
+1. **Puzzle Solving:** Each node attempts to solve a cryptographic puzzle.
+2. **Leader Election:** The first node to find such $x$ becomes the leader and broadcasts the block as its proposal for the next block in the chain.
+3. **Chain Extension:** Honest nodes always extend the chain with the highest total work, the one requiring the most cumulative PoW effort.
+4. **Difficulty Adjustment:** The protocol adjusts $\tau$ over time to maintain a stable block production rate and reduce accidental forks. A typical target is one block every fixed time interval.

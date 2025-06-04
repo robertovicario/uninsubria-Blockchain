@@ -93,15 +93,12 @@ _Dolev-Strong_ protocol allows a source node to broadcast a message to all other
     $$
     M_0 = (m, \sigma_S(m))
     $$
-
-2. **Propagation:** For rounds $r = 1, \ldots, f$, each node forwards the message to all other nodes, including its own signature $i$.
+2. **Propagation:** For rounds $r = 1, \ldots, f$, each node forwards the message to all other nodes, including its own signature $i$:
 
     $$
     M_{r-1} = (m, \sigma_{i_0}(m), \sigma_{i_1}(m), \ldots, \sigma_{i_{r-1}}(m))
     $$
-
 3. **Acknowledgment:** Each node collects all received messages $M_r$. Messages with invalid values in the chain are discarded.
-
 4. **Termination:** The consensus is reached when nodes reach the quorum of $2f + 1$ messages. The final value is the one with the highest number of votes.
 
 \vspace{0.5cm}
@@ -192,26 +189,14 @@ In a partially synchronous system, where message delivery time becomes bounded o
 
 **\boxed{PROOF}**
 
-Let $N_2$ be the faulty process, and let all other processes be honest:
+- Let $N_2$ be the faulty process, with $N_1$ and $N_3$ honest. Suppose $N_1$ has input 1 and $N_3$ has input 0.
+- The faulty process $N_2$ behaves inconsistently, sending messages to $N_1$ claiming its input is 1, and to $N_3$ claiming its input is 0.
+- Meanwhile, the adversary delays all communication between $N_1$ and $N_3$ until after both have made their decisions.
+- Because GST is unknown and message delays before GST can be unbounded, $N_1$ and $N_3$ cannot distinguish between delayed messages and crashed processes. Consequently, $N_1$, believing both it and $N_2$ are honest, may decide on 1; similarly, $N_3$, also trusting $N_2$, may decide on 0. This leads to:
 
-- Let $N_1$ have input value $1$.
-- Let $N_3$ have input value $0$.
-- The faulty process $N_2$ behaves inconsistently:
-
-  - It sends messages to $N_1$ claiming its input is $1$.
-  - It sends messages to $N_3$ claiming its input is $0$.
-  - The adversary delays all communication between $N_1$ and $N_3$ until after both have decided.
-
-Since GST is unknown, and pre-GST message delays are unbounded, $N_1$ and $N_3$ cannot distinguish delayed messages from crashed processes. As a result:
-
-- $N_1$ may decide value $1$, believing $N_2$ and itself are honest.
-- $N_3$ may decide value $0$, believing $N_2$ and itself are honest.
-
-This leads to:
-
-$$
-v_1 \neq v_3
-$$
+    $$
+    v_1 \neq v_3
+    $$
 
 \vspace{0.5cm}
 
