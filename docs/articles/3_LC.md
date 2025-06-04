@@ -9,7 +9,7 @@ date: "2024/2025"
 titlepage: true
 titlepage-color: "FFFFFF"
 titlepage-text-color: "000000"
-titlepage-rule-color: "9D44B5"
+titlepage-rule-color: "007161"
 toc: true
 toc-own-page: true
 numbersections: true
