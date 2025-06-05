@@ -103,7 +103,7 @@ _Dolev-Strong_ protocol allows a source node to broadcast a message to all other
 
 \vspace{0.5cm}
 
-> **FLM (Fischer-Lynch-Merritt) Impossibility Result:** In synchronous systems, the absence of a Public Key Infrastructure (PKI), makes impossible to achieve consensus.
+> **FLM (Fischer-Lynch-Merritt) Impossibility Result:** In synchronous systems, the absence of a _Public Key Infrastructure (PKI)_, makes impossible to achieve consensus.
 
 # Byzantine Agreement (BA)
 
@@ -183,16 +183,16 @@ This method proposes a solution for _Single Point of Failure_ problems by allowi
 
 > **_Partially Synchronous_**
 
-In a partially synchronous system, where message delivery time becomes bounded only after some unknown Global Stabilization Time (GST), no deterministic algorithm can guarantee both safety and liveness in the presence of even one faulty process.
+In a partially synchronous system, where message delivery time becomes bounded only after some unknown _Global Stabilization Time (GST)_, no deterministic algorithm can guarantee both safety and liveness in the presence of even one faulty process.
 
 \vspace{0.5cm}
 
 **\boxed{PROOF}**
 
-- Let $N_2$ be the faulty process, with $N_1$ and $N_3$ honest. Suppose $N_1$ has input 1 and $N_3$ has input 0.
-- The faulty process $N_2$ behaves inconsistently, sending messages to $N_1$ claiming its input is 1, and to $N_3$ claiming its input is 0.
-- Meanwhile, the adversary delays all communication between $N_1$ and $N_3$ until after both have made their decisions.
-- Because GST is unknown and message delays before GST can be unbounded, $N_1$ and $N_3$ cannot distinguish between delayed messages and crashed processes. Consequently, $N_1$, believing both it and $N_2$ are honest, may decide on 1; similarly, $N_3$, also trusting $N_2$, may decide on 0. This leads to:
+1. Let $N_2$ be the faulty process, with $N_1$ and $N_3$ honest. Suppose $N_1$ has input 1 and $N_3$ has input 0.
+2. The faulty process $N_2$ behaves inconsistently, sending messages to $N_1$ claiming its input is 1, and to $N_3$ claiming its input is 0.
+3. Meanwhile, the adversary delays all communication between $N_1$ and $N_3$ until after both have made their decisions.
+4. Because GST is unknown and message delays before GST can be unbounded, $N_1$ and $N_3$ cannot distinguish between delayed messages and crashed processes. Consequently, $N_1$, believing both it and $N_2$ are honest, may decide on 1; similarly, $N_3$, also trusting $N_2$, may decide on 0. This leads to:
 
     $$
     v_1 \neq v_3
@@ -214,9 +214,27 @@ _Tendermint_ is a deterministic consensus protocol designed to work in the parti
 
 **\boxed{ALGORITHM}**
 
-Each round $r$ designates a leader at the moment $t$. Each round has four phases, lasting $\Delta$ each after GST, with a total duration of $4\Delta r$:
+Certainly! Here's an improved and more precise version of the **boxed algorithm**, keeping the same level of technical difficulty but with more mathematical clarity, rigor, and completeness:
 
-1. **Propose:** The leader proposes a block along with a Quorum Certificate (QC) justifying it. This happens at time $t = 4\Delta r$.
-2. **Prevote:** Validators vote if the block is valid and consistent with the latest QC. This happens at time $t = 4\Delta r + \Delta$.
-3. **Precommit:** If a validator sees $\geq \frac{2n}{3}$ prevotes for a block, it broadcasts a precommit. This happens at time $t = 4\Delta r + 2\Delta$.
-4. **Commit:** If a validator sees $\geq \frac{2n}{3}$ precommits, it commits the block and advances height. This happens at time $t = 4\Delta r + 3\Delta$.
+1. **Propose:** A designated proposer (deterministically selected from the validator set) broadcasts a proposed block $B_h$ for height $h$ to all validators.
+2. **Prevote:** Upon receiving a valid proposal $B_h$, each validator $v_i$ broadcasts a prevote message:
+
+    $$
+    \text{prevote}_i(h, r) =
+    \begin{cases}
+        \text{hash}(B_h), & \text{if } B_h \text{ is valid and received} \\
+        \text{none}, & \text{otherwise}
+    \end{cases}
+    $$
+
+    where $r$ is the current round number.
+3. **Precommit:** If a validator observes prevotes for the same block hash from at least $\frac{2n}{3}$ validators, it broadcasts a precommit message:
+
+    $$
+    \text{precommit}_i(h, r) =
+    \begin{cases}
+        \text{hash}(B_h), & \text{if } \text{prevotes}(h, r) \geq \frac{2n}{3} \text{ for } B_h \\
+        \text{none}, & \text{otherwise}
+    \end{cases}
+    $$
+4. **Commit:** If a validator observes precommits for the same block hash from at least $\frac{2n}{3}$ validators, it commits $B_h$ as the block at height $h$, finalizes the round, and proceeds to height $h + 1$.
