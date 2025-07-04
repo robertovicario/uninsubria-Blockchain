@@ -38,7 +38,7 @@ The _Execution Layer_ is a critical component of blockchain systems, responsible
 
 # UTXO (Unspent Transaction Output) Model
 
-The _UTXO_ model is the key concept in Bitcoin and other cryptocurrencies. It represents the state of the blockchain as a set of unspent transaction outputs, which can be used as inputs for new transactions.
+The _UTXO_ model is the key concept in Bitcoin. It represents the state of the blockchain as a set of unspent transaction outputs, which can be used as inputs for new transactions.
 
 \vspace{0.5cm}
 
@@ -71,46 +71,13 @@ A _Merkle Tree_ is a data structure that allows efficient verification that a tr
     
     $$h' = h_{\text{root}}$$
 
+# Account-based Model
 
+The _Account-based Model_ is used in Ethereum. It represents the state of the blockchain as a set of accounts, each with its own metadata.
 
+\vspace{0.5cm}
 
----
+The two main types of accounts in the account-based model are:
 
-## Lezione 4: Ethereum, Account Model e Smart Contracts
-
-### 4.1 Account-based model
-- Stato:
-  \[
-  S_t = \{ (\text{addr}, \text{balance}, \text{nonce}, \text{code}, \text{storage}) \}
-  \]
-  dove `addr` può essere EOA o contract.
-
-- Due tipi:
-  - **EOA**: firmato da chiave privata.
-  - **Contract account**: contiene codice immutabile + storage mutabile.
-
-### 4.2 Transazioni e messaggi
-- Una tx include:
-  - `sig, from, to, value, gasLimit, gasPrice, data`.
-
-- I contract possono generare **messaggi** ad altri contract (non persistenti su blockchain).
-
-### 4.3 Ethereum Virtual Machine (EVM)
-- Stack machine, max depth 1024.
-- Ogni istruzione ha un **costo in gas**:
-  - E.g., `SSTORE`: 20k gas (scrittura), 15k refund (cancellazione).
-
-- Se gas esaurito → tx rollback.
-- La fee pagata è:
-  \[
-  \text{GasUsed} \times \text{GasPrice}
-  \]
-
-### 4.4 Smart Contract ERC-20
-- Stato:
-  - `balanceOf: mapping(address => uint256)`
-  - `allowance: mapping(address => mapping(address => uint256))`
-- Funzioni principali:
-  - `transfer`, `approve`, `transferFrom`
-- Eventi:
-  - `Transfer`, `Approval`
+- **Externally Owned Account (EOA):** Controlled by a private key, can send transactions.
+- **Contract Account:** Contains code and storage, can execute smart contracts.

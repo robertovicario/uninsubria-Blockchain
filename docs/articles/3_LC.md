@@ -34,7 +34,7 @@ pandoc-latex-environment:
 
 # Longest Chain (LC)
 
-Longest chain is a data structure used in blockchain systems to maintain a single, agreed-upon history of transactions.
+_Longest Chain_ is a data structure used in blockchain systems to maintain a single, agreed-upon history of transactions.
 
 \vspace{0.5cm}
 
