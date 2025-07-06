@@ -1,7 +1,7 @@
 ---
 documentclass: article
 lang: "en"
-title: "Proof of Work (PoW) Mechanisms"
+title: "Consensus Mechanisms"
 subtitle: "Blockchain @ uninsubria"
 author: "Roberto Vicario"
 date: "2024/2025"
@@ -32,7 +32,7 @@ pandoc-latex-environment:
     error-box: [error]
 ---
 
-# Proof of Work (PoW) Mechanisms
+# Proof of Work (PoW)
 
 Proof of Work (PoW) is a consensus mechanism used in blockchain systems to ensure that all participants agree on the state of the ledger. It requires participants (miners) to solve complex mathematical problems in order to add new blocks to the blockchain.
 
@@ -46,46 +46,28 @@ With the purpose to create a secure and decentralized network, PoW mechanisms pr
 \vspace{0.5cm}
 
 :::danger
-**Selfish Mining:** A node can deviate from the protocol to increase its own rewards, potentially leading to a situation where it can earn more than its fair share of rewards:
+**Selfish Mining:** A node can deviate from the protocol to increase its own rewards, potentially leading to a situation where it can earn more than its fair share of rewards.
+:::
+
+\vspace{0.5cm}
+
+There are two main cases to consider regarding selfish mining:
 
 - **Case with $\alpha > 0.5$:** Node $A$ can orphan honest blocks and earn approximately 100% of the rewards.
-- **Case with $\alpha < 0.5$:** It is still possible to earn more than $\alpha$ of the total rewards through a strategy that:
-  - Delays block announcements.
-  - Selectively orphans blocks.
-  - Exploits tie-breaking in an adversarial manner.
+- **Case with $\alpha < 0.5$:** It is still possible to earn more than $\alpha$ of the total rewards through a strategy that: delays block announcements, selectively orphans blocks, and exploits tie-breaking in an adversarial manner.
 
-Key finding:
-
-\begin{equation}
-\text{Reward share} > \alpha\  \text{if}\  \alpha > 0.33
-\end{equation}
-:::
+In general, a selfish miner can obtain a share of rewards greater than their relative mining power $\alpha$ if $\alpha$ exceeds approximately _0.33_. This means that even with less than one-third of the total mining power, a selfish miner can outperform honest mining by strategically withholding and releasing blocks.
 
 ## Transaction Fees
 
 Transaction fees are an essential part of PoW mechanisms, as they provide an additional incentive for miners to include transactions in the blocks they mine. The fees are typically paid by users who want their transactions to be processed quickly.
 
-### 2.1 Problema del block size
-- Capacità limitata: es. `1MB`, \( \approx 1000 \) tx/block.
-- Le transazioni competono per essere incluse: nasce il concetto di **transaction fee**.
+\vspace{0.5cm}
 
-### 2.2 Meccanismo di asta (First-Price Auction)
-- Ogni transazione propone una fee.
-- I miner selezionano le tx con la fee più alta.
-- Problemi:
-  - Strategia di bidding inefficiente.
-  - Incentivi al selfish mining se `TxFees >> BlockReward`.
+::: warning
+**Block Size Problem:** The limited capacity of blocks leads to competition among transactions for inclusion, resulting in the need for transaction fees.
+:::
 
-### 2.3 Meccanismo EIP-1559 (Ethereum)
-- Introduce **base fee** deterministica `r`, calcolata dinamicamente:
-  - Se `\text{block size} > c \Rightarrow r \uparrow`
-  - Se `\text{block size} < c \Rightarrow r \downarrow`
+# Proof of Stake (PoS)
 
-- **Fee totale = base fee (bruciata) + tip (al miner).**
-
-- Vantaggi:
-  - Prevedibilità.
-  - Mitigazione della collusione.
-  - Riduzione dell’inflazione tramite burning.
-
-???????????
+...

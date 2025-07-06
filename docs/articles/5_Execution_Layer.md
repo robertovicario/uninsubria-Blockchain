@@ -38,7 +38,7 @@ The _Execution Layer_ is a critical component of blockchain systems, responsible
 
 # UTXO (Unspent Transaction Output) Model
 
-The _UTXO_ model is the key concept in Bitcoin. It represents the state of the blockchain as a set of unspent transaction outputs, which can be used as inputs for new transactions.
+The _UTXO_ model is used in Bitcoin. It represents the state of the blockchain as a set of unspent transaction outputs, which can be used as inputs for new transactions.
 
 \vspace{0.5cm}
 
