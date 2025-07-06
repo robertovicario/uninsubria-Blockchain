@@ -54,7 +54,7 @@ Fault tolerance is the ability of a system to continue operating correctly even 
 > **Theorem:** Let $n$ be the total number of nodes in a distributed system and $f$ be the maximum number of faulty nodes. To guarantee that honest nodes can reach consensus despite the presence of these faulty nodes, it is necessary that:
 
 \begin{equation}
-    n \geq 3f + 1
+    f \leq \frac{n - 1}{3}
 \end{equation}
 
 # Byzantine Broadcast (BB)
@@ -75,7 +75,7 @@ This method allows a source node to broadcast a message to all other nodes in th
 \vspace{0.5cm}
 
 :::error
-**Vulnerability:** This protocol relies on a single source node to initiate the broadcast. If this node is compromised, it can send conflicting messages to different nodes, potentially disrupting consensus. This creates a _Single Point of Failure_, where the entire system never reaches consensus.
+**Single Point of Failure:** This protocol relies on a single source node to initiate the broadcast. If this node is compromised, it can send conflicting messages to different nodes, potentially disrupting consensus and causing the entire system to never reach consensus.
 :::
 
 ## Dolev-Strong Protocol
@@ -137,6 +137,8 @@ X_i = (\underbrace{0, 0, \ldots, 0}_i, \underbrace{1, 1, \ldots, 1}_{n - i})
 $$
 
 Since $X_0 = (0, 0, \dots, 0)$, by _Validity_, the output must be 0. Thus, $X_0$ is a 0-configuration. Similarly, $X_n = (1, 1, \dots, 1)$ must lead to output 1, and is a 1-configuration.
+
+\vspace{0.5cm}
 
 If we gradually flip the input bits from 0 to 1, moving from $X_0$ to $X_n$, there must exist a first index $i$ such that:
 
@@ -204,6 +206,10 @@ In a partially synchronous system, where message delivery time becomes bounded o
 **Conclusion:** Therefore, no deterministic algorithm can achieve consensus in a partially synchronous system with even one faulty process.
 :::
 
+\vspace{0.5cm}
+
+> **CAP Principle:** No distributed system can simultaneously guarantee _Consistency_, _Availability_, and _Partition Tolerance_.
+
 ## Tendermint Protocol
 
 > ***Partially Synchronous***
@@ -213,8 +219,6 @@ _Tendermint_ is a deterministic consensus protocol designed to work in the parti
 \vspace{0.5cm}
 
 **\boxed{ALGORITHM}**
-
-Certainly! Here's an improved and more precise version of the **boxed algorithm**, keeping the same level of technical difficulty but with more mathematical clarity, rigor, and completeness:
 
 1. **Propose:** A designated proposer (deterministically selected from the validator set) broadcasts a proposed block $B_h$ for height $h$ to all validators.
 2. **Prevote:** Upon receiving a valid proposal $B_h$, each validator $v_i$ broadcasts a prevote message:

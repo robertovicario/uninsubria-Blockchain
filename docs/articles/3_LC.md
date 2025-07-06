@@ -34,9 +34,13 @@ pandoc-latex-environment:
 
 # Longest Chain (LC)
 
-_Longest Chain_ is a data structure used in blockchain systems to maintain a single, agreed-upon history of transactions.
+_Longest Chain_ is a data structure used in blockchain systems to maintain a single, agreed-upon history of transactions. This structure is designed to guarantee that all nodes could participate in the consensus process, even when they do not know the genesis block.
 
 \vspace{0.5cm}
+
+:::warning
+**Problem:** _Nodes may disagree on the current state because they have seen different versions of the chain. Is there a way to randomly sample the leader from an unknown set of participants?_
+:::
 
 **\boxed{ASSUMPTIONS}**
 
@@ -47,12 +51,6 @@ An algorithm reaches consensus under the following assumptions:
 3. **Leader Selection:** No node can influence the probability of being selected as the leader.
 4. **Predecessor Requirement:** For each new proposal, must exists a predecessor block in the chain from the previous round.
 5. **Chain Status:** At all times, all correct nodes know the same set of blocks and their predecessors.
-
-\vspace{0.5cm}
-
-:::warning
-**Problem:** _Nodes may disagree on the current state because they have seen different versions of the chain. Is there a way to randomly sample the leader from an unknown set of participants?_
-:::
 
 ## Sybil Attacks
 
@@ -89,7 +87,9 @@ $$
 H(x) \leq \tau
 $$
 
-where $\tau$ is the current difficulty target.
+Where $\tau$ is the current difficulty target.
+
+\vspace{0.5cm}
 
 Since $H$ behaves like a random function, the only viable strategy is brute-force search. The difficulty of the puzzle is adjusted by changing $\tau$:
 
