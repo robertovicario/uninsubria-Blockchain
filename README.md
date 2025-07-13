@@ -3,7 +3,7 @@
 
 # Blockchain, MSc Course @ uninsubria
 
-You can easily download my personal notes below, or simply browse them online on my personal learning platform: [Akademos](https://www.robertovicario.com/Akademos/docs/category/blockchain).
+You can easily download my personal notes below, or simply browse them online on [Akademos](https://www.robertovicario.com/Akademos/docs/category/blockchain), my personal learning platform.
 
 ## Notes
 
@@ -15,7 +15,7 @@ You can easily download my personal notes below, or simply browse them online on
 
 ## Akademos
 
-| <img src="https://raw.githubusercontent.com/robertovicario/uninsubria-Blockchain/main/docs/cover.png" alt="UI" width="384"> |
+| <img src="https://raw.githubusercontent.com/robertovicario/Akademos/main/docs/cover.png" alt="UI" width="384"> |
 | :-: |
 | **Home - Akademos** |
 
