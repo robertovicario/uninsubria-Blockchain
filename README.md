@@ -1,4 +1,7 @@
-# Project
+| <img src="docs/uninsubria.svg" width="128"> |
+| - |
+
+# Blockchain, MSc Course @ uninsubria
 
 ## License
 
