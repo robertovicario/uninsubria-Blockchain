@@ -42,6 +42,8 @@ _Longest Chain_ is a data structure used in blockchain systems to maintain a sin
 **Problem:** _Nodes may disagree on the current state because they have seen different versions of the chain. Is there a way to randomly sample the leader from an unknown set of participants?_
 :::
 
+\vspace{0.5cm}
+
 **\boxed{ASSUMPTIONS}**
 
 An algorithm reaches consensus under the following assumptions:
@@ -101,13 +103,13 @@ Since $H$ behaves like a random function, the only viable strategy is brute-forc
 PoW can be integrated into consensus mechanisms in these ways:
 
 - **PoW + BFT:** Integrating PoW with BFT consensus can introduce instability. Fluctuations in the network's total computational power may disrupt predictable leader selection, undermining the reliability and security guarantees of BFT protocols. As a result, combining PoW with BFT is generally discouraged.
-- **PoW + LC:** Nodes compete to solve computational puzzles, and the chain with the most accumulated proof of work is considered the valid one. This combination forms the basis of _Nakamoto Consensus_.
+- **PoW + LC:** Nodes compete to solve computational puzzles, and the chain with the most accumulated proof of work is considered the valid one. This combination forms the basis of _Nakamoto Protocol_.
 
-# Nakamoto Consensus
+# Nakamoto Protocol
 
 > **Partially Synchronous**
 
-_Nakamoto Consensus_ is a consensus mechanism designed for PoW-based blockchains. It elects a leader in each round based on the computational effort expended by nodes, allowing them to agree on a single chain of blocks.
+_Nakamoto Protocol_ is a consensus mechanism designed for PoW-based blockchains. It elects a leader in each round based on the computational effort expended by nodes, allowing them to agree on a single chain of blocks.
 
 \vspace{0.5cm}
 

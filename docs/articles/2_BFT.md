@@ -136,7 +136,7 @@ $$
 X_i = (\underbrace{0, 0, \ldots, 0}_i, \underbrace{1, 1, \ldots, 1}_{n - i})
 $$
 
-Since $X_0 = (0, 0, \dots, 0)$, by _Validity_, the output must be 0. Thus, $X_0$ is a 0-configuration. Similarly, $X_n = (1, 1, \dots, 1)$ must lead to output 1, and is a 1-configuration.
+Since $X_0 = (0, 0, \dots, 0)$, by _Validity_, the output must be 0, and is a 0-configuration. Similarly, $X_n = (1, 1, \dots, 1)$ must lead to output 1, and is a 1-configuration.
 
 \vspace{0.5cm}
 
@@ -200,6 +200,8 @@ In a partially synchronous system, where message delivery time becomes bounded o
     v_1 \neq v_3
     $$
 
+    Where $v_1$ and $v_3$ are the decisions made by $N_1$ and $N_3$, respectively.
+
 \vspace{0.5cm}
 
 :::info
@@ -231,7 +233,7 @@ _Tendermint_ is a deterministic consensus protocol designed to work in the parti
     \end{cases}
     $$
 
-    where $r$ is the current round number.
+    Where $r$ is the current round number.
 3. **Precommit:** If a validator observes prevotes for the same block hash from at least $\frac{2n}{3}$ validators, it broadcasts a precommit message:
 
     $$

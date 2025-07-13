@@ -34,7 +34,7 @@ pandoc-latex-environment:
 
 # Proof of Work (PoW)
 
-Proof of Work (PoW) is a consensus mechanism used in blockchain systems to ensure that all participants agree on the state of the ledger. It requires participants (miners) to solve complex mathematical problems in order to add new blocks to the blockchain.
+_Proof of Work (PoW)_ is a consensus mechanism used in blockchain systems to ensure that all participants agree on the state of the ledger. It requires participants (miners) to solve complex mathematical problems in order to add new blocks to the blockchain.
 
 ## Incentives
 
@@ -70,4 +70,12 @@ Transaction fees are an essential part of PoW mechanisms, as they provide an add
 
 # Proof of Stake (PoS)
 
-...
+_Proof of Stake (PoS)_ is a consensus mechanism used in blockchain systems as an alternative to Proof of Work (PoW). It aims to achieve consensus without requiring extensive computational resources, making it more energy-efficient and environmentally friendly.
+
+## Slashing
+
+Just like in PoW, validators in PoS systems are incentivized to act honestly through rewards and penalties. To discourage malicious behavior, PoS protocols often implement a mechanism called _Slashing_. This involves the partial or full loss of staked funds for validators who engage in misbehavior, such as:
+
+- **Double Signing:** Attempting to validate multiple blocks at the same height.
+- **Inactivity:** Failing to participate in the consensus process for an extended period.
+- **Attestation Failure:** Not voting on blocks or not following the protocol rules.

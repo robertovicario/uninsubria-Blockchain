@@ -91,7 +91,7 @@ The main layers of the blockchain stack are:
 1. **Network Layer:** The underlying infrastructure that connects all nodes in the blockchain network. It ensures that data can be transmitted securely and efficiently between nodes.
 2. **Consensus Layer:** The protocol that allows nodes to agree on the state of the blockchain. It ensures that all nodes have a consistent view of the ledger, even in the presence of faulty or malicious nodes.
 3. **Data Layer:** The actual data stored in the blockchain, including transactions and smart contracts. This layer is responsible for maintaining the integrity and immutability of the data.
-4. **Application Layer:** The user-facing applications and interfaces that interact with the blockchain. This layer includes wallets, decentralized applications (dApps), and other tools that allow users to interact with the blockchain.
+4. **Execution Layer:** The user-facing applications and interfaces that interact with the blockchain. This layer includes wallets, decentralized applications (dApps), and other tools that allow users to interact with the blockchain.
 
 # Consensus Problem
 
