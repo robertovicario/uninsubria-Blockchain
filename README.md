@@ -15,7 +15,7 @@ You can easily download my personal notes below, or simply browse them online on
 
 ## Akademos
 
-| <img src="https://raw.githubusercontent.com/robertovicario/Akademos/main/docs/cover.png" alt="UI" width="384"> |
+| <a href="https://www.robertovicario.com/Akademos/docs/category/blockchain"><img src="https://raw.githubusercontent.com/robertovicario/Akademos/main/docs/cover.png" alt="UI" width="384"></a> |
 | :-: |
 | **Home - Akademos** |
 
