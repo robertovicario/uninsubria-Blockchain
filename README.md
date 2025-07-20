@@ -11,11 +11,14 @@ You can easily download my personal notes below, or simply browse them online on
 
 ## Notes
 
+Feel free to download my personal notes of the course by clicking the link below:
+
 | <a href="https://raw.githubusercontent.com/robertovicario/uninsubria-Blockchain/main/dist/Notes.pdf"><img src="docs/cover.png" alt="cover" height="256"></a> |
 | - |
 
-
 ## Akademos
+
+> **Sponsor**
 
 | <a href="https://www.robertovicario.com/Akademos/docs/category/blockchain"><img src="https://raw.githubusercontent.com/robertovicario/Akademos/main/docs/cover.png" alt="UI" width="384"></a> |
 | :-: |
