@@ -6,14 +6,15 @@ setup() {
     handler
 }
 
-articles() {
+notes() {
     printer "📚 Generating documentation"
     mkdir -p ./dist
-    pandoc ./docs/articles/$2.md \
-        -o ./dist/$2.pdf \
+    pandoc ./docs/articles/md/*.md \
+        -o ./dist/Notes.pdf \
+        --from=markdown \
         --template=./pandoc-latex-template/template-multi-file/eisvogel.latex \
         --pdf-engine=xelatex \
-        --filter pandoc-latex-environment \
+        --filter=pandoc-latex-environment \
         --listings
     handler
 }
@@ -37,10 +38,10 @@ case $1 in
     setup)
         setup
         ;;
-    articles)
-        articles $@
+    notes)
+        notes
         ;;
     *)
-        echo "Usage: $0 {setup|articles}"
+        echo "Usage: $0 {setup|notes}"
         ;;
 esac
